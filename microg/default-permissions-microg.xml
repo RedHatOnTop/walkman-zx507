@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Runtime permissions microG's self-check asks for, granted once and revocable
+     (scripts/microg-gsi.sh). Location stays off until the user turns it on. -->
+<exceptions>
+    <exception package="com.google.android.gms">
+        <permission name="android.permission.GET_ACCOUNTS" fixed="false"/>
+        <permission name="android.permission.POST_NOTIFICATIONS" fixed="false"/>
+        <permission name="android.permission.READ_PHONE_STATE" fixed="false"/>
+    </exception>
+    <exception package="com.android.vending">
+        <permission name="android.permission.POST_NOTIFICATIONS" fixed="false"/>
+    </exception>
+</exceptions>

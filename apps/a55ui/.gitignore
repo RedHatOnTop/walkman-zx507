@@ -1,0 +1,7 @@
+# Everything build.sh / render.sh generate, and with it every Sony resource that
+# gets staged (QML, images, fonts, translations). Never commit any of it.
+/build/
+/toolchain/
+*.apk
+*.rcc
+*.log

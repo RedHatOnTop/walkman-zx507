@@ -1,0 +1,3 @@
+# See scripts/gpu-gsi.sh and /system/bin/zx507-gpu.sh.
+on post-fs
+    exec u:r:phhsu_daemon:s0 root -- /system/bin/zx507-gpu.sh

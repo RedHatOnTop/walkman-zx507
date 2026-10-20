@@ -1,0 +1,18 @@
+# Installed as /system/etc/init/zxdbg.rc by scripts/debug-gsi.sh, with
+# gsi-debug/init.sh as /init. zygote-start is the last trigger before vendor
+# early-boot creates the USB gadget g1; init waits here while the wrapper
+# removes its own gadget (see init.sh).
+
+# A crash-looping critical lmkd would otherwise abort init before boot
+# completes and hide whatever fails after it.
+on early-init
+    setprop init.svc_debug.no_fatal.lmkd true
+
+on zygote-start
+    setprop persist.sys.usb.config adb
+    mkdir /dev/zxdbg-handoff 0700 root root
+    wait /dev/zxdbg-released 10
+
+# init.sh stops its log mirror 30 s after this.
+on property:sys.boot_completed=1
+    mkdir /dev/zxdbg-booted 0700 root root

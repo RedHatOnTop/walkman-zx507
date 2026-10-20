@@ -1,0 +1,3 @@
+# See /system/bin/zx507-qstiles-default.sh.
+on property:sys.boot_completed=1
+    exec_background u:r:phhsu_daemon:s0 root -- /system/bin/zx507-qstiles-default.sh

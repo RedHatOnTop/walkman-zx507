@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  dispatchWhenNonInteractive keeps the keys working with the screen off;
+  scripts/patch-services.py lets that apply to keys that do not wake it.
+-->
+<global_keys version="1">
+    <key keyCode="KEYCODE_VOLUME_UP" component="com.sony.walkman.volumectrlpanel/.MasterVolumeReceiver" dispatchWhenNonInteractive="true" />
+    <key keyCode="KEYCODE_VOLUME_DOWN" component="com.sony.walkman.volumectrlpanel/.MasterVolumeReceiver" dispatchWhenNonInteractive="true" />
+</global_keys>

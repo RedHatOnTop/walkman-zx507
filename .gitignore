@@ -1,0 +1,44 @@
+# Sony firmware and derived images are proprietary. Keep them local.
+firmware/*.UPG
+firmware/*.upg
+firmware/*.img
+firmware/*.zip
+firmware/*.bin
+firmware/*.tar
+# Sony GPL source drop (kernel/build.sh input), large.
+firmware/*.tgz
+firmware/*.part
+firmware/.tmp*
+
+# Derived extraction trees
+extracted/
+
+# Device capture output and the firmware decryption key. Never commit these.
+secrets/
+device-capture/
+*.cfg
+bugreport*.zip
+
+# Locally unpacked platform-tools (adb/fastboot), not part of the project.
+tools/
+
+# Downloaded GSI images (public AOSP builds, large). Hashes live in gsi/SHA256SUMS.
+gsi/*.img
+gsi/*.img.xz
+# Overlay builds from scripts/build-overlay.sh (compat-gsi.sh rebuilds them).
+gsi/*.apk
+gsi/*.apk.idsig
+__pycache__/
+kernel-out/
+
+# apps/a55ui: staged Sony resources, toolchain, APKs (also in apps/a55ui/.gitignore)
+apps/a55ui/build/
+apps/a55ui/toolchain/
+
+# services.jar odex/vdex/art compiled on the unit (scripts/services-odex.sh).
+gsi/odex-cache/
+# Work directories of build-image.sh, chain-gsi.sh, image-manifest.py and odex-gsi.sh while they run.
+gsi/.build.*/
+gsi/.chain.*/
+gsi/.manifest.*/
+gsi/.odex.*/

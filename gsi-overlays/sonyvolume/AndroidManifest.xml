@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The ZX507's volume is the codec's master volume (izm_master_volume, 0-120),
+  which Sony's VolumeCtrlPanelApp sets through IzmAudioManager. Stock
+  framework-res sent both volume keys to its MasterVolumeReceiver as
+  GLOBAL_BUTTON; the GSI's global_keys.xml is empty, so the keys only moved
+  AudioService's STREAM_MUSIC index and the codec stayed where it was.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="dev.walkman.zx507.overlay.sonyvolume">
+    <overlay android:targetPackage="android" android:isStatic="true" android:priority="2" />
+    <application android:hasCode="false" />
+</manifest>

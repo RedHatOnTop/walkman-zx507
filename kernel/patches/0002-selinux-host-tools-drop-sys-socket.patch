@@ -1,0 +1,30 @@
+Build fix for newer build hosts: the SELinux host tools genheaders and mdp
+include the host's <sys/socket.h>, whose PF_MAX trips classmap.h's
+"#error New address family defined" on glibc with more than 44 families.
+Same approach as upstream dfbd199a7cfe ("selinux: use kernel linux/socket.h
+for genheaders and mdp"); the host tools only need the class tables.
+
+diff --git a/scripts/selinux/genheaders/genheaders.c b/scripts/selinux/genheaders/genheaders.c
+index fa48fab..3cc4893 100644
+--- a/scripts/selinux/genheaders/genheaders.c
++++ b/scripts/selinux/genheaders/genheaders.c
+@@ -9,7 +9,6 @@
+ #include <string.h>
+ #include <errno.h>
+ #include <ctype.h>
+-#include <sys/socket.h>
+ 
+ struct security_class_mapping {
+ 	const char *name;
+diff --git a/scripts/selinux/mdp/mdp.c b/scripts/selinux/mdp/mdp.c
+index ffe8179..c29fa4a 100644
+--- a/scripts/selinux/mdp/mdp.c
++++ b/scripts/selinux/mdp/mdp.c
+@@ -32,7 +32,6 @@
+ #include <stdlib.h>
+ #include <unistd.h>
+ #include <string.h>
+-#include <sys/socket.h>
+ 
+ static void usage(char *name)
+ {

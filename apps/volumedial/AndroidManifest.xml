@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The volume popup the ZX507's volume keys show on top of the GSI.
+
+  Stock Sony SystemUI drew a master-volume row (a 20-step ring and the
+  0-120 number) in its volume dialog and opened VolumeCtrlPanelApp's
+  MasterVolumeActivity, the big dial, when it was tapped. The GSI keeps
+  AOSP's SystemUI, so this app draws that row as its own system window and
+  still hands taps to Sony's dial. Persistent, so it is up before the first
+  key press; INTERNAL_SYSTEM_WINDOW (platform-signed) for the volume layer.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="dev.walkman.zx507.volumedial"
+    android:versionCode="2"
+    android:versionName="2">
+
+    <uses-sdk android:minSdkVersion="33" android:targetSdkVersion="33" />
+
+    <uses-permission android:name="android.permission.INTERNAL_SYSTEM_WINDOW" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="com.sony.walkman.volumectrlpanel.PERM_MASTER_VOLUME" />
+
+    <queries>
+        <package android:name="com.sony.walkman.volumectrlpanel" />
+    </queries>
+
+    <application
+        android:name=".VolumeDialApp"
+        android:label="Volume dial"
+        android:persistent="true"
+        android:directBootAware="true"
+        android:allowBackup="false"
+        android:hasCode="true">
+        <receiver
+            android:name=".BootReceiver"
+            android:exported="true"
+            android:directBootAware="true">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

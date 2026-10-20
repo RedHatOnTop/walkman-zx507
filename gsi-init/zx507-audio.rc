@@ -1,0 +1,8 @@
+# Sony's hi-res mixer: the primary output at 44.1-192 kHz, 16/32-bit, from
+# the vendor's own audio_policy_configuration_highres.xml. Sony's Android 9
+# AudioPolicyManager loaded that file itself when
+# persist.vendor.audio.mixerthread.res=high (this unit's setting); AOSP's
+# only reads audio_policy_configuration.xml. Mounted before class core
+# starts audioserver.
+on early-boot && property:persist.sys.zx507.highres_mixer=true
+    mount none /vendor/etc/audio_policy_configuration_highres.xml /vendor/etc/audio_policy_configuration.xml bind

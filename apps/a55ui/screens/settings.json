@@ -1,0 +1,143 @@
+{
+  "id": "settings",
+  "order": 30,
+  "title": "Settings",
+  "screen": "qrc:/sid_4102_4103_setting_top/SettingTop.qml",
+  "window": "qrc:/window/BasicWindow.qml",
+  "inset": {
+    "top": 44,
+    "bottom": 56
+  },
+  "available": true,
+  "values": {
+    "isClearAudioOn": true,
+    "isSourceDirectOn": false,
+    "isDsdRemasteringOn": false,
+    "hasFeatureClearAudio": true,
+    "hasFeatureSourceDirect": true,
+    "hasFeatureDsdRemastering": true,
+    "hasFeatureHighQualitySoundGuide": true,
+    "hasFeatureUserPreset": true,
+    "hasFeatureNoiseCancel": false,
+    "hasFeatureBLERemote": false,
+    "hasFeatureHeadphoneSelection": false,
+    "brightness": 60,
+    "brightnessIconVisible": true,
+    "blueToothIconVisible": true,
+    "remoteControlIconVisible": false,
+    "quickButtonStatusText": "",
+    "btStatusInfo": "Off",
+    "bleRemoteStatusInfo": "Off",
+    "has_feature_bt_receiver": true,
+    "hasFeatureDacModel": true,
+    "hasFeatureLanguageStudy": true,
+    "hasFeatureFmRadio": true,
+    "hasFeatureRecorder": true,
+    "hasFeatureRegulationInfo": true,
+    "isNotSettingForDac": true,
+    "isAvailablePowerSupplySetting": true,
+    "isNfcOn": false
+  },
+  "windowValues": {
+    "headerArea": {
+      "objectName": "headerArea",
+      "useVolumeArea": false,
+      "stateIconList": {
+        "$model": {
+          "roles": [
+            "QmlIntRole",
+            "ParamIntFrameSize",
+            "ParamAnimationImageRole",
+            "ParamQvariantRole"
+          ],
+          "rows": [
+            {
+              "QmlIntRole": 5,
+              "ParamIntFrameSize": 36,
+              "ParamAnimationImageRole": "",
+              "ParamQvariantRole": [
+                0,
+                82,
+                false,
+                false
+              ]
+            },
+            {
+              "QmlIntRole": 4,
+              "ParamIntFrameSize": 48,
+              "ParamAnimationImageRole": "",
+              "ParamQvariantRole": 82
+            }
+          ]
+        }
+      },
+      "isEnableStatusBarMouseArea": false,
+      "volumeOperateInfo": {
+        "$model": {
+          "roles": [
+            "kVolumeRole",
+            "kVisibleAvlsMarkRole",
+            "kVisibleVolumubarRole"
+          ],
+          "rows": [
+            {
+              "kVolumeRole": 43,
+              "kVisibleAvlsMarkRole": false,
+              "kVisibleVolumubarRole": true
+            }
+          ]
+        }
+      },
+      "volume": 43,
+      "maxVolume": 120,
+      "visibleVolumeArea": true,
+      "visibleVolumubar": true,
+      "isEnableVolumeBarMouseArea": false,
+      "outputType": "",
+      "outputTypeText": "",
+      "soundQualityText": "FLAC 96kHz/24bit",
+      "visibleBalanceIcon": false,
+      "visibleAvlsMark": false,
+      "isChgPlusVolume": false,
+      "visibleVolumeChange": false,
+      "isHighGain": false,
+      "avlsVolumeMax": 0,
+      "isAvlsOn": false,
+      "isHighResolution": true,
+      "isVolPopupOpen": false,
+      "volumeDisplayType": ""
+    },
+    "navigationBar": {
+      "objectName": "navigationBar",
+      "BackButton": {
+        "Enabled": true,
+        "Visible": true,
+        "normalImage": "qrc:/btn_navi_back_normal.png",
+        "pressedImage": "qrc:/btn_navi_back_pressed.png",
+        "disableImage": "qrc:/btn_navi_back_disable.png"
+      },
+      "NowPlayingButton": {
+        "Enabled": true,
+        "Visible": true,
+        "normalImage": "qrc:/btn_audio_navi_player_normal.png",
+        "pressedImage": "qrc:/btn_audio_navi_player_pressed.png",
+        "disableImage": "qrc:/btn_audio_navi_player_disable.png"
+      },
+      "FunctionTopButton": {
+        "Enabled": true,
+        "Visible": true,
+        "normalImage": "qrc:/btn_audio_navi_library_normal.png",
+        "pressedImage": "qrc:/btn_audio_navi_library_pressed.png",
+        "disableImage": "qrc:/btn_audio_navi_library_disable.png"
+      },
+      "OptionButton": {
+        "Enabled": true,
+        "Visible": true,
+        "normalImage": "qrc:/btn_navi_option_normal.png",
+        "pressedImage": "qrc:/btn_navi_option_pressed.png",
+        "disableImage": "qrc:/btn_navi_option_disable.png"
+      },
+      "option": []
+    }
+  }
+}

@@ -1,0 +1,4 @@
+# See /system/bin/zx507-gps-guard.sh. phhsu_daemon is TrebleDroid's own
+# permissive domain, the one its rw-system.sh helpers run in.
+on property:init.svc.gps_fw_update=running
+    exec_background u:r:phhsu_daemon:s0 root -- /system/bin/zx507-gps-guard.sh

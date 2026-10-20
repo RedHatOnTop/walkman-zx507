@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Launcher3 animates app launches from the icon with a corner radius on the
+  window leash. SurfaceFlinger composes rounded layers on the GPU, and on this
+  unit's Vivante driver the framebuffer target it scans out still holds an
+  earlier screen. Without the corner radius every frame stays on the HWC.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="dev.walkman.zx507.overlay.noroundwindows">
+    <overlay android:targetPackage="android" android:isStatic="true" android:priority="1" />
+    <application android:hasCode="false" />
+</manifest>

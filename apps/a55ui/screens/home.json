@@ -1,0 +1,267 @@
+{
+  "id": "home",
+  "order": 10,
+  "title": "Home (library top)",
+  "screen": "qrc:/sid_0901_library/Contents.qml",
+  "window": "qrc:/window/PlayerWindow.qml",
+  "inset": {
+    "top": 44,
+    "bottom": 150
+  },
+  "available": true,
+  "values": {
+    "icon_list": {
+      "$model": {
+        "roles": [
+          "id",
+          "file_name",
+          "pressed_file_name",
+          "selected_file_name",
+          "back_color",
+          "icon_name"
+        ],
+        "rows": [
+          {
+            "id": 0,
+            "file_name": "qrc:/opt2/appresouce/btn_music_library_filter_all_songs_normal.png",
+            "pressed_file_name": "qrc:/opt2/appresouce/btn_music_library_filter_all_songs_pressed.png",
+            "selected_file_name": "qrc:/opt2/appresouce/btn_music_library_filter_all_songs_selected.png",
+            "back_color": "#B1CFE5",
+            "icon_name": "All Songs"
+          },
+          {
+            "id": 1,
+            "file_name": "qrc:/opt2/appresouce/btn_music_library_filter_albums_normal.png",
+            "pressed_file_name": "qrc:/opt2/appresouce/btn_music_library_filter_albums_pressed.png",
+            "selected_file_name": "qrc:/opt2/appresouce/btn_music_library_filter_albums_selected.png",
+            "back_color": "#FFD2B0",
+            "icon_name": "Albums"
+          },
+          {
+            "id": 2,
+            "file_name": "qrc:/opt2/appresouce/btn_music_library_filter_artists_normal.png",
+            "pressed_file_name": "qrc:/opt2/appresouce/btn_music_library_filter_artists_pressed.png",
+            "selected_file_name": "qrc:/opt2/appresouce/btn_music_library_filter_artists_selected.png",
+            "back_color": "#AED1B3",
+            "icon_name": "Artists"
+          },
+          {
+            "id": 3,
+            "file_name": "qrc:/opt2/appresouce/btn_music_library_filter_playlists_normal.png",
+            "pressed_file_name": "qrc:/opt2/appresouce/btn_music_library_filter_playlists_pressed.png",
+            "selected_file_name": "qrc:/opt2/appresouce/btn_music_library_filter_playlists_selected.png",
+            "back_color": "#FF6757",
+            "icon_name": "Playlists"
+          },
+          {
+            "id": 4,
+            "file_name": "qrc:/opt2/appresouce/btn_music_library_filter_genres_normal.png",
+            "pressed_file_name": "qrc:/opt2/appresouce/btn_music_library_filter_genres_pressed.png",
+            "selected_file_name": "qrc:/opt2/appresouce/btn_music_library_filter_genres_selected.png",
+            "back_color": "#DDDDDD",
+            "icon_name": "Genres"
+          },
+          {
+            "id": 5,
+            "file_name": "qrc:/opt2/appresouce/btn_music_library_filter_composers_year_normal.png",
+            "pressed_file_name": "qrc:/opt2/appresouce/btn_music_library_filter_composers_year_pressed.png",
+            "selected_file_name": "qrc:/opt2/appresouce/btn_music_library_filter_composers_year_selected.png",
+            "back_color": "#B1CFE5",
+            "icon_name": "Composers"
+          },
+          {
+            "id": 6,
+            "file_name": "qrc:/opt2/appresouce/btn_music_library_filter_release_year_normal.png",
+            "pressed_file_name": "qrc:/opt2/appresouce/btn_music_library_filter_release_year_pressed.png",
+            "selected_file_name": "qrc:/opt2/appresouce/btn_music_library_filter_release_year_selected.png",
+            "back_color": "#FFD2B0",
+            "icon_name": "Release Year"
+          },
+          {
+            "id": 7,
+            "file_name": "qrc:/opt2/appresouce/btn_music_library_filter_folders_normal.png",
+            "pressed_file_name": "qrc:/opt2/appresouce/btn_music_library_filter_folders_pressed.png",
+            "selected_file_name": "qrc:/opt2/appresouce/btn_music_library_filter_folders_selected.png",
+            "back_color": "#AED1B3",
+            "icon_name": "Folders"
+          },
+          {
+            "id": 8,
+            "file_name": "qrc:/opt2/appresouce/btn_music_library_filter_recently_added_normal.png",
+            "pressed_file_name": "qrc:/opt2/appresouce/btn_music_library_filter_recently_added_pressed.png",
+            "selected_file_name": "qrc:/opt2/appresouce/btn_music_library_filter_recently_added_selected.png",
+            "back_color": "#FF6757",
+            "icon_name": "Recently Added"
+          },
+          {
+            "id": 9,
+            "file_name": "qrc:/opt2/appresouce/btn_music_library_filter_hi_res_normal.png",
+            "pressed_file_name": "qrc:/opt2/appresouce/btn_music_library_filter_hi_res_pressed.png",
+            "selected_file_name": "qrc:/opt2/appresouce/btn_music_library_filter_hi_res_selected.png",
+            "back_color": "#DDDDDD",
+            "icon_name": "Hi-Res"
+          },
+          {
+            "id": 10,
+            "file_name": "qrc:/opt2/appresouce/btn_music_library_filter_rec_contents_normal.png",
+            "pressed_file_name": "qrc:/opt2/appresouce/btn_music_library_filter_rec_contents_pressed.png",
+            "selected_file_name": "qrc:/opt2/appresouce/btn_music_library_filter_rec_contents_selected.png",
+            "back_color": "#B1CFE5",
+            "icon_name": "Recorded"
+          }
+        ]
+      }
+    },
+    "pageindex": 0,
+    "isAvailableFmRadio": true,
+    "isAvailableRecorder": true,
+    "isAvailableLangStudy": true,
+    "isAvailableDACMode": true,
+    "is_available_bt_receiver": true,
+    "isDemoMode": false,
+    "is_available_basic_player_controls": true,
+    "function_icon_info": {
+      "function_icon_area_margin": 8,
+      "function_icon_width": 88,
+      "function_icon_space": 6,
+      "fm_icon_normal": "qrc:/opt2/appresouce/btn_launcher_fm_5pcs_normal.png",
+      "fm_icon_pressed": "qrc:/opt2/appresouce/btn_launcher_fm_5pcs_pressed.png",
+      "language_icon_normal": "qrc:/opt2/appresouce/btn_launcher_language_5pcs_normal.png",
+      "language_icon_pressed": "qrc:/opt2/appresouce/btn_launcher_language_5pcs_pressed.png",
+      "direct_rec_icon_normal": "qrc:/opt2/appresouce/btn_launcher_direct_rec_5pcs_normal.png",
+      "direct_rec_icon_pressed": "qrc:/opt2/appresouce/btn_launcher_direct_rec_5pcs_pressed.png",
+      "dac_icon_normal": "qrc:/opt2/appresouce/btn_launcher_dac_5pcs_normal.png",
+      "dac_icon_pressed": "qrc:/opt2/appresouce/btn_launcher_dac_5pcs_pressed.png",
+      "bt_receiver_icon_normal": "qrc:/opt2/appresouce/btn_launcher_bt_receiver_5pcs_normal.png",
+      "bt_receiver_icon_pressed": "qrc:/opt2/appresouce/btn_launcher_bt_receiver_5pcs_pressed.png"
+    }
+  },
+  "windowValues": {
+    "headerArea": {
+      "objectName": "headerArea",
+      "useVolumeArea": false,
+      "stateIconList": {
+        "$model": {
+          "roles": [
+            "QmlIntRole",
+            "ParamIntFrameSize",
+            "ParamAnimationImageRole",
+            "ParamQvariantRole"
+          ],
+          "rows": [
+            {
+              "QmlIntRole": 5,
+              "ParamIntFrameSize": 36,
+              "ParamAnimationImageRole": "",
+              "ParamQvariantRole": [
+                0,
+                82,
+                false,
+                false
+              ]
+            },
+            {
+              "QmlIntRole": 4,
+              "ParamIntFrameSize": 48,
+              "ParamAnimationImageRole": "",
+              "ParamQvariantRole": 82
+            }
+          ]
+        }
+      },
+      "isEnableStatusBarMouseArea": false,
+      "volumeOperateInfo": {
+        "$model": {
+          "roles": [
+            "kVolumeRole",
+            "kVisibleAvlsMarkRole",
+            "kVisibleVolumubarRole"
+          ],
+          "rows": [
+            {
+              "kVolumeRole": 43,
+              "kVisibleAvlsMarkRole": false,
+              "kVisibleVolumubarRole": true
+            }
+          ]
+        }
+      },
+      "volume": 43,
+      "maxVolume": 120,
+      "visibleVolumeArea": true,
+      "visibleVolumubar": true,
+      "isEnableVolumeBarMouseArea": false,
+      "outputType": "",
+      "outputTypeText": "",
+      "soundQualityText": "FLAC 96kHz/24bit",
+      "visibleBalanceIcon": false,
+      "visibleAvlsMark": false,
+      "isChgPlusVolume": false,
+      "visibleVolumeChange": false,
+      "isHighGain": false,
+      "avlsVolumeMax": 0,
+      "isAvlsOn": false,
+      "isHighResolution": true,
+      "isVolPopupOpen": false,
+      "volumeDisplayType": ""
+    },
+    "navigationBar": {
+      "objectName": "navigationBar",
+      "BackButton": {
+        "Enabled": true,
+        "Visible": true,
+        "normalImage": "qrc:/btn_navi_back_normal.png",
+        "pressedImage": "qrc:/btn_navi_back_pressed.png",
+        "disableImage": "qrc:/btn_navi_back_disable.png"
+      },
+      "NowPlayingButton": {
+        "Enabled": true,
+        "Visible": true,
+        "normalImage": "qrc:/btn_audio_navi_player_normal.png",
+        "pressedImage": "qrc:/btn_audio_navi_player_pressed.png",
+        "disableImage": "qrc:/btn_audio_navi_player_disable.png"
+      },
+      "FunctionTopButton": {
+        "Enabled": true,
+        "Visible": true,
+        "normalImage": "qrc:/btn_audio_navi_library_normal.png",
+        "pressedImage": "qrc:/btn_audio_navi_library_pressed.png",
+        "disableImage": "qrc:/btn_audio_navi_library_disable.png"
+      },
+      "OptionButton": {
+        "Enabled": true,
+        "Visible": true,
+        "normalImage": "qrc:/btn_navi_option_normal.png",
+        "pressedImage": "qrc:/btn_navi_option_pressed.png",
+        "disableImage": "qrc:/btn_navi_option_disable.png"
+      },
+      "option": []
+    },
+    "basicPlayerControls": {
+      "objectName": "basicPlayerControls",
+      "dispMode": 0,
+      "playTitle": "Night Letter",
+      "playState": false,
+      "playerButtonEnabled": true,
+      "shuffleState": false,
+      "shuffleVisible": true,
+      "repeatModeState": 0,
+      "repeatModeVisible": true
+    },
+    "pageIndicator": {
+      "objectName": "pageIndicator",
+      "now_index": 0,
+      "mark_count": 2,
+      "preview": false
+    },
+    "sourceDirectOrClearAudio": {
+      "objectName": "sourceDirectOrClearAudio",
+      "is_source_direct": false,
+      "is_clear_audio": false,
+      "is_source_direct_preview": false,
+      "is_clear_audio_preview": false,
+      "is_enable_direct_sound": true,
+      "is_enable_clear_audio": true
+    }
+  }
+}

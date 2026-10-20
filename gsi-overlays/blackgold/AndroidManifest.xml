@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The ZX507's system theme: OLED black with Sony's champagne gold. Monet is
+  seeded with W.music's gold (#C0A565, see zx507-theme-default.sh) and this
+  overlay moves the pieces Monet cannot: window backgrounds go true black,
+  floating surfaces keep Monet's warm near-black so they still read on it,
+  and the accents step from tone 90 (butter) down to tone 80 (gold).
+  Only the named device-default colors are overlaid; the system_* palette
+  stays Monet's. Dark mode is the default, since all of this is the dark
+  theme.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="dev.walkman.zx507.overlay.blackgold">
+    <overlay android:targetPackage="android" android:isStatic="true" android:priority="3" />
+    <application android:hasCode="false" />
+</manifest>

@@ -1,0 +1,157 @@
+{
+  "id": "player",
+  "order": 20,
+  "title": "Now playing",
+  "screen": "qrc:/sid_0201_player/MusicPlayerDefault.qml",
+  "window": "qrc:/window/PlayerWindow.qml",
+  "inset": {
+    "top": 66,
+    "bottom": 150
+  },
+  "available": true,
+  "values": {
+    "meta_data": {
+      "play_title": "Night Letter",
+      "artist_name": "Sample Artist",
+      "album_name": "Sample Album",
+      "is_high_resolution": true,
+      "lyrics_status": 0,
+      "sound_quality_string": "FLAC 96kHz/24bit"
+    },
+    "entry_id": "1",
+    "update_db_counter": 0,
+    "total_playback_time": 253000,
+    "currently_playing_time": 62000,
+    "currentry_playtrack_num": 3,
+    "total_playtrack_num": 12,
+    "is_activated": true
+  },
+  "windowValues": {
+    "headerArea": {
+      "objectName": "headerArea",
+      "useVolumeArea": true,
+      "stateIconList": {
+        "$model": {
+          "roles": [
+            "QmlIntRole",
+            "ParamIntFrameSize",
+            "ParamAnimationImageRole",
+            "ParamQvariantRole"
+          ],
+          "rows": [
+            {
+              "QmlIntRole": 5,
+              "ParamIntFrameSize": 36,
+              "ParamAnimationImageRole": "",
+              "ParamQvariantRole": [
+                0,
+                82,
+                false,
+                false
+              ]
+            },
+            {
+              "QmlIntRole": 4,
+              "ParamIntFrameSize": 48,
+              "ParamAnimationImageRole": "",
+              "ParamQvariantRole": 82
+            }
+          ]
+        }
+      },
+      "isEnableStatusBarMouseArea": false,
+      "volumeOperateInfo": {
+        "$model": {
+          "roles": [
+            "kVolumeRole",
+            "kVisibleAvlsMarkRole",
+            "kVisibleVolumubarRole"
+          ],
+          "rows": [
+            {
+              "kVolumeRole": 43,
+              "kVisibleAvlsMarkRole": false,
+              "kVisibleVolumubarRole": true
+            }
+          ]
+        }
+      },
+      "volume": 43,
+      "maxVolume": 120,
+      "visibleVolumeArea": true,
+      "visibleVolumubar": true,
+      "isEnableVolumeBarMouseArea": false,
+      "outputType": "",
+      "outputTypeText": "",
+      "soundQualityText": "FLAC 96kHz/24bit",
+      "visibleBalanceIcon": false,
+      "visibleAvlsMark": false,
+      "isChgPlusVolume": false,
+      "visibleVolumeChange": false,
+      "isHighGain": false,
+      "avlsVolumeMax": 0,
+      "isAvlsOn": false,
+      "isHighResolution": true,
+      "isVolPopupOpen": false,
+      "volumeDisplayType": ""
+    },
+    "navigationBar": {
+      "objectName": "navigationBar",
+      "BackButton": {
+        "Enabled": true,
+        "Visible": true,
+        "normalImage": "qrc:/btn_navi_back_normal.png",
+        "pressedImage": "qrc:/btn_navi_back_pressed.png",
+        "disableImage": "qrc:/btn_navi_back_disable.png"
+      },
+      "NowPlayingButton": {
+        "Enabled": false,
+        "Visible": true,
+        "normalImage": "qrc:/btn_audio_navi_player_normal.png",
+        "pressedImage": "qrc:/btn_audio_navi_player_pressed.png",
+        "disableImage": "qrc:/btn_audio_navi_player_disable.png"
+      },
+      "FunctionTopButton": {
+        "Enabled": true,
+        "Visible": true,
+        "normalImage": "qrc:/btn_audio_navi_library_normal.png",
+        "pressedImage": "qrc:/btn_audio_navi_library_pressed.png",
+        "disableImage": "qrc:/btn_audio_navi_library_disable.png"
+      },
+      "OptionButton": {
+        "Enabled": true,
+        "Visible": true,
+        "normalImage": "qrc:/btn_navi_option_normal.png",
+        "pressedImage": "qrc:/btn_navi_option_pressed.png",
+        "disableImage": "qrc:/btn_navi_option_disable.png"
+      },
+      "option": []
+    },
+    "basicPlayerControls": {
+      "objectName": "basicPlayerControls",
+      "dispMode": 1,
+      "playTitle": "Night Letter",
+      "playState": false,
+      "playerButtonEnabled": true,
+      "shuffleState": false,
+      "shuffleVisible": true,
+      "repeatModeState": 0,
+      "repeatModeVisible": true
+    },
+    "pageIndicator": {
+      "objectName": "pageIndicator",
+      "now_index": 1,
+      "mark_count": 3,
+      "preview": false
+    },
+    "sourceDirectOrClearAudio": {
+      "objectName": "sourceDirectOrClearAudio",
+      "is_source_direct": false,
+      "is_clear_audio": false,
+      "is_source_direct_preview": false,
+      "is_clear_audio_preview": false,
+      "is_enable_direct_sound": true,
+      "is_enable_clear_audio": true
+    }
+  }
+}

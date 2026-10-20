@@ -1,0 +1,72 @@
+Himax HX83102D zero-flash touch: wait for the firmware request instead of
+giving up when it has not finished 10 s after probe.
+
+The panel's touch controller runs from SRAM, so the driver uploads
+Himax_firmware_30B.bin on every boot. Probe asks for it with
+request_firmware_nowait, which on Android is served by ueventd through the
+user helper, and a delayed work 10 s later uploads whatever has arrived. On
+stock ueventd is up in time. A GSI compiles its SELinux policy during first
+stage init and starts ueventd at about 12.7 s, so the work found no firmware,
+logged "Failed TP firmware update" and touch stayed dead for the whole boot.
+
+The async callback now completes fw_entry_done and the work waits on it. A
+failed request still completes it, after the loader's own timeout.
+
+diff --git a/drivers/input/touchscreen/hxchipset/himax_common.c b/drivers/input/touchscreen/hxchipset/himax_common.c
+index d7ca90f..638bace 100644
+--- a/drivers/input/touchscreen/hxchipset/himax_common.c
++++ b/drivers/input/touchscreen/hxchipset/himax_common.c
+@@ -2193,6 +2193,7 @@ static void himax_request_firmware_async_cb(const struct firmware *fw,
+ 	ts->fw_entry = fw;
+ 	if (ts->fw_entry == NULL)
+ 		E("%s, Failed to get firmware entry\n", __func__);
++	complete_all(&ts->fw_entry_done);
+ }
+ #endif
+ 
+@@ -2301,6 +2302,7 @@ FW_force_upgrade:
+ #ifdef HX_ZERO_FLASH
+ 	g_auto_update_flag = true;
+ 	ts->fw_entry = NULL;
++	init_completion(&ts->fw_entry_done);
+ 	request_firmware_nowait(THIS_MODULE, FW_ACTION_HOTPLUG,
+ 				i_CTPM_firmware_name, ts->dev, GFP_KERNEL,
+ 				ts, himax_request_firmware_async_cb);
+diff --git a/drivers/input/touchscreen/hxchipset/himax_common.h b/drivers/input/touchscreen/hxchipset/himax_common.h
+index 99dfc81..0254977 100644
+--- a/drivers/input/touchscreen/hxchipset/himax_common.h
++++ b/drivers/input/touchscreen/hxchipset/himax_common.h
+@@ -32,6 +32,7 @@
+ #include <linux/gpio.h>
+ #include <linux/input/mt.h>
+ #include <linux/firmware.h>
++#include <linux/completion.h>
+ #include <linux/types.h>
+ #include <linux/fs.h>
+ #include <linux/buffer_head.h>
+@@ -364,6 +365,7 @@ struct himax_ts_data {
+ 	struct workqueue_struct *himax_0f_update_wq;
+ 	struct delayed_work work_0f_update;
+ 	struct firmware *fw_entry;
++	struct completion fw_entry_done;
+ #endif
+ 
+ 	struct workqueue_struct *himax_diag_wq;
+diff --git a/drivers/input/touchscreen/hxchipset/himax_ic_incell_core.c b/drivers/input/touchscreen/hxchipset/himax_ic_incell_core.c
+index e4557e6..908e6f7 100644
+--- a/drivers/input/touchscreen/hxchipset/himax_ic_incell_core.c
++++ b/drivers/input/touchscreen/hxchipset/himax_ic_incell_core.c
+@@ -2587,6 +2587,13 @@ void himax_mcu_0f_operation(struct work_struct *work)
+ 	himax_extcon_typec_get_state(ts);
+ #endif
+ 
++	/*
++	 * The firmware comes from the user helper, i.e. ueventd. A GSI compiles
++	 * its SELinux policy at boot and starts ueventd after this work's 10 s
++	 * delay, so wait for the request; it gives up by itself at the loader
++	 * timeout.
++	 */
++	wait_for_completion(&ts->fw_entry_done);
+ 	if (!ts->fw_entry) {
+ 		E("Failed TP firmware update\n");
+ 		return;

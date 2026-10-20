@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="quick_settings_tiles_default" translatable="false">internet,bt,dnd,rotation,battery</string>
+</resources>

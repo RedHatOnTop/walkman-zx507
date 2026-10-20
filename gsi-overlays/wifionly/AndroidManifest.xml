@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The ZX507 has no modem. With voice, SMS and mobile data all off,
+  TelephonyManager.getActiveModemCount() is 0, so the phone process creates
+  no Phone objects: AOSP's Wi-Fi-only configuration. The phone features go
+  with gsi-etc/zx507-wifi-only.xml.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="dev.walkman.zx507.overlay.wifionly">
+    <overlay android:targetPackage="android" android:isStatic="true" android:priority="4" />
+    <application android:hasCode="false" />
+</manifest>

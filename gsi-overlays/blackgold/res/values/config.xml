@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- UiModeManager.MODE_NIGHT_YES: the GSI defaults to light, which never uses the colors above. -->
+    <integer name="config_defaultNightMode">2</integer>
+</resources>

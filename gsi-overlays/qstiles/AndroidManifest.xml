@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Quick Settings on a fresh unit: Internet, Bluetooth, Do Not Disturb,
+  auto-rotate and Battery Saver, the user's pick. AOSP's list adds airplane
+  mode and tiles this player has no hardware or service for (flashlight,
+  cameras, mic, cast, wallet). A unit that already stored its tiles in
+  sysui_qs_tiles keeps them; "default" in that setting stands for this list.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="dev.walkman.zx507.overlay.qstiles">
+    <overlay android:targetPackage="com.android.systemui" android:isStatic="true" android:priority="1" />
+    <application android:hasCode="false" />
+</manifest>

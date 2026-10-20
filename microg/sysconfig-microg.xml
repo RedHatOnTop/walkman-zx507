@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Push (Cloud Messaging) has to reach apps in Doze and Data Saver
+     (scripts/microg-gsi.sh). -->
+<config>
+    <allow-in-power-save package="com.google.android.gms"/>
+    <allow-in-data-usage-save package="com.google.android.gms"/>
+</config>
