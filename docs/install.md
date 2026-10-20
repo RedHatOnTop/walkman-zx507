@@ -51,6 +51,11 @@ The stock 4.14 kernel lacks the binder feature Android 13's keystore needs, so a
 get past first boot on it. `kernel/patches/` adds it (0001), the Himax touch firmware wait
 (0003) and exFAT for SD cards (0004).
 
+The release `kernel-4.14.78-zx507-1` has it built: `Image-zx507-4.14.78-1` (sha256
+`19c3af6fc902f74a47b73b7320821ba189021362d080e07dbe1e965b12afb336`), with its complete source,
+`.config` and `SHA256SUMS` beside it. Download it and go on with step 3 below. To build the
+same kernel yourself:
+
 1. Sony's GPL source for this player:
    `https://prodgpl.blob.core.windows.net/download/Audio/20211022/gpl_source.tgz`
    (MD5 `4ea368ef…`, checked by the script).
