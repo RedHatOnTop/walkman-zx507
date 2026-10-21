@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
-# Default wallpaper drawn by wallpaper/onebit.py instead of the stock plain black one
-# (devlog 2026-10-19). debloat-gsi.sh already points ro.config.wallpaper at
-# /system/media/default_wallpaper.png; this replaces that file. A unit with no wallpaper of its
-# own set shows the new one after the reboot; one the user picked stays.
+# Default wallpaper wallpaper/onebit.png instead of the stock plain black one (devlog
+# 2026-10-19). wallpaper/onebit.py draws it; the picture is kept drawn so a build needs no
+# numpy or Pillow, and the script is run again after a change to the drawing.
+# debloat-gsi.sh already points ro.config.wallpaper at /system/media/default_wallpaper.png;
+# this replaces that file. A unit with no wallpaper of its own set shows the new one after the
+# reboot; one the user picked stays.
 #
 # Usage: scripts/wallpaper-gsi.sh <in.img> <out.img>
 
@@ -22,7 +24,7 @@ printf '%s\0' u:object_r:system_file:s0 >"$WORK/ctx-system"
 debugfs -R "dump /system/build.prop $WORK/build.prop" "$OUT" 2>/dev/null
 grep -qx "ro.config.wallpaper=$WP" "$WORK/build.prop" ||
 	{ echo "build.prop: ro.config.wallpaper is not $WP (scripts/debloat-gsi.sh)" >&2; exit 1; }
-python3 -I "$ROOT/wallpaper/onebit.py" "$WORK/wallpaper.png"
+cp "$ROOT/wallpaper/onebit.png" "$WORK/wallpaper.png"
 
 cat >"$WORK/cmds" <<EOF
 rm $WP
@@ -45,4 +47,4 @@ resize2fs -M "$OUT" >/dev/null
 blocks=$(dumpe2fs -h "$OUT" 2>/dev/null | awk -F: '/^Block count/{gsub(/ /,"",$2); print $2}')
 truncate -s $((blocks * 4096)) "$OUT"
 e2fsck -fn "$OUT" >/dev/null
-echo "$OUT: default wallpaper from wallpaper/onebit.py"
+echo "$OUT: default wallpaper from wallpaper/onebit.png"
