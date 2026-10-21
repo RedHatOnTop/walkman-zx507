@@ -122,7 +122,8 @@ partitions from your UPG in `<out-dir>`, as `unpack-stock.sh` checked them, with
 3. `fastboot -w` (Android 9 cannot read Android 13's userdata), then `fastboot reboot`.
 
 Slot a keeps its stock system through all of this. The bootloader stays unlocked; locking it
-erases the player once more and is not part of going back. Not yet run on the unit.
+erases the player once more and is not part of going back. Run on the unit on 2026-10-21
+from Walkman Manager: Sony's 4.06.00 came back on slot b with its stock kernel and files.
 
 ## Known issues
 
