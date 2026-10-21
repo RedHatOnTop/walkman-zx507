@@ -135,8 +135,7 @@ from Walkman Manager: Sony's 4.06.00 came back on slot b with its stock kernel a
 - microG's device registration and Cloud Messaging are off by default, so push messages do
   not arrive until you turn them on in microG settings.
 - Transient frames while the screen rotates.
-- Untested: Bluetooth audio to a paired headset (A2DP/LDAC), the release build's first boot,
-  battery life against stock.
+- Untested: Bluetooth audio to a paired headset (A2DP/LDAC), battery life against stock.
 
 ## Supported
 
