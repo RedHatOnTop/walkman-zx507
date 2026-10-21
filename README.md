@@ -32,13 +32,13 @@ Either way:
 | Kernel | Sony's 4.14 GPL source with four patches (`kernel/patches/`): the binder feature Android 13's keystore needs, a build fix for the SELinux host tools, the Himax touch firmware wait, exFAT for cards. Built with the stock release string, so Sony's vendor modules still load. |
 | Audio | Sony's audio HAL and DSP stay on the vendor partition. W.music and its native libraries come from the firmware, on a shim that gives them the Android 9 `AudioTrack` they were built against (`audio-shim/`). |
 | System | TrebleDroid ci-20230905 arm64 A/B vanilla, debloated, with Sony's apps, a black and champagne-gold theme, Quick Settings tiles, legacy Korean (CP949) file tags read correctly (`tag-charset/`), and microG. |
-| Install | `scripts/make-install.sh`: one entry point from the owner's files to `system.img`, `boot.img`, `vbmeta.img` and an `install.json` that says what goes where and what to read back after boot. |
+| Install | `scripts/make-install.sh`: one entry point from the owner's files to `system.img`, `boot.img`, `vbmeta.img` and an `install.json` that says what goes where and what to read back after boot. `scripts/make-restore.sh` makes the same kind of set from the four stock partitions, for going back to Sony's firmware. |
 
 ## Layout
 
 | Path | Contents |
 |---|---|
-| `scripts/make-install.sh` | The kit's entry point (Walkman Manager runs it). |
+| `scripts/make-install.sh`, `make-restore.sh` | The kit's entry points, install and back to stock (Walkman Manager runs them). |
 | `scripts/build-image.sh` | The system image, one step per script (`scripts/*-gsi.sh`). |
 | `scripts/unpack-stock.sh`, `decrypt-upg.sh`, `extract-partition.py` | Sony's `.UPG`: decrypt, verify, extract. |
 | `kernel/` | `build.sh` builds the kernel from Sony's GPL source, `release.sh` packs it with its source, `repack-boot.py` puts it into the stock boot image. |

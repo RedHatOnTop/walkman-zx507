@@ -111,9 +111,18 @@ for a factory reset; after that, slot a runs stock again.
 
 ## Back to stock
 
-Not yet run as a procedure. Slot a keeps a stock system through all of the above. What should
-work, untested: flash your stock `boot.img`, `vbmeta.img`, `system.img` and `vendor.img` to
-slot b, `fastboot -w`, reboot.
+`scripts/make-restore.sh <file.UPG> <icx_nvp.cfg> <stock-dir> <out-dir>` puts the four stock
+partitions from your UPG in `<out-dir>`, as `unpack-stock.sh` checked them, with an
+`install.json` for Walkman Manager's "Back to stock". By hand, with the player in fastboot:
+
+1. `fastboot flash vbmeta_b vbmeta.img`, `fastboot flash boot_b boot.img`,
+   `fastboot flash system_b system.img`, `fastboot flash vendor_b vendor.img`: the images as
+   the UPG has them, vbmeta with its verification on again.
+2. `fastboot --set-active=b`
+3. `fastboot -w` (Android 9 cannot read Android 13's userdata), then `fastboot reboot`.
+
+Slot a keeps its stock system through all of this. The bootloader stays unlocked; locking it
+erases the player once more and is not part of going back. Not yet run on the unit.
 
 ## Known issues
 

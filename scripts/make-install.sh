@@ -11,7 +11,7 @@
 #   manifest.tsv  image-manifest.py of system.img
 #   install.json  what goes to which partition, the hashes, and what to read back after boot
 # <stock-dir> keeps the four stock partitions between runs (unpack-stock.sh); they are also
-# what going back to stock takes.
+# what going back to stock takes (make-restore.sh).
 #
 # Progress: "== total <n>" first, then one "== <i> <step>" line as each step starts. Every
 # other line is a step's own output.
