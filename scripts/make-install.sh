@@ -24,7 +24,8 @@
 
 set -euo pipefail
 # Glob and sort order decide entry order in generated XML and APKs; one locale, same bytes.
-export LC_ALL=C.UTF-8
+# The APKs' zip entries carry local time, so one time zone as well.
+export LC_ALL=C.UTF-8 TZ=UTC
 UPG="$1"
 KEYFILE="$2"
 GSI_IN="$3"
