@@ -5,9 +5,10 @@ Android 13 GSI and **your unit's own** Sony firmware into a system image and a b
 that unit. Sony's apps, libraries, boot animation and ramdisk come from your firmware and stay
 on your machine; do not pass the results on.
 
-Status 2026-10-20: the debug build is in daily use on one unit. The release build
-(`RELEASE=1`) is built and checked file by file but has **not been booted yet**; its first boot
-is part of the next clean install. "Back to stock" below has not been run as a procedure.
+Status 2026-10-22: one unit runs the release build (`RELEASE=1`), installed clean from
+Walkman Manager on 2026-10-21 right after going back to stock with it; the debug build was in
+daily use before that. The first-run setup below is in the kit since 2026-10-22; it ran on that
+unit as an app, and not yet as the first boot of a clean install.
 
 ## What you need
 
@@ -105,7 +106,12 @@ Sony's own images on it.
 A later boot takes about 80 seconds to the home screen; the first one after `-w` takes longer
 (not timed for this build). The first boot sets the defaults once: the black and gold theme,
 SystemUI at 0.75 scale and five Quick Settings tiles (`gsi-init/`), and microG's runtime
-permissions (Android grants default permissions only then). If the unit loops instead, the
+permissions (Android grants default permissions only then). Then it asks, where AOSP's
+Provision went straight to an English home screen on GMT (`apps/setup`): the language; the
+time zone, the language's country first (a Wi-Fi-only unit has nothing to detect one from);
+Wi-Fi, through Settings' own network picker; and USB debugging, off unless you turn it on. The
+home screen then has W.music and Sound adjustment in the dock and nothing else, from the same
+app as Launcher3's partner layout. If the unit loops instead, the
 bootloader falls back to stock on slot a, which finds Android 13's keys in userdata and asks
 for a factory reset; after that, slot a runs stock again.
 
