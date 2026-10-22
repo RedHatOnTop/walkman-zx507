@@ -19,7 +19,7 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 T="$ROOT/tools"
 AOSP=https://android.googlesource.com/platform/build/+/refs/heads/android13-release/target/product/security
 MAVEN=https://repo1.maven.org/maven2
-PREBUILT=https://github.com/RedHatOnTop/walkman-zx507/releases/download/prebuilt-1
+PREBUILT=https://github.com/RedHatOnTop/walkman-zx507/releases/download/prebuilt-2
 GSI_TOO=1
 [ "${1:-}" != --tools-only ] || GSI_TOO=
 

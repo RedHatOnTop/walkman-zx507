@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Launcher3's first home screen (DefaultLayoutParser): the 4-icon dock with W.music and Sound
+  adjustment in the middle two places, nothing else. In the dock, screen and x are the place.
+  Attributes without a namespace are read as well as Launcher3's own.
+-->
+<favorites>
+    <favorite
+        container="-101"
+        screen="1"
+        x="1"
+        y="0"
+        packageName="com.sony.walkman.highresmediaplayer"
+        className="com.sony.walkman.highresmediaplayer.activity.InitActivity" />
+    <favorite
+        container="-101"
+        screen="2"
+        x="2"
+        y="0"
+        packageName="com.sony.walkman.soundeffectapp"
+        className="com.sony.walkman.soundeffectapp.activity.SoundEffectMainActivity" />
+</favorites>

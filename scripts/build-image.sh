@@ -40,6 +40,7 @@ steps() {
 	step wallpaper-gsi
 	step firefox-gsi
 	step qstiles-gsi
+	step setup-gsi
 	step drop-trebleapp-gsi
 	[ -z "${RELEASE:-}" ] || step release-gsi
 	step odex-gsi

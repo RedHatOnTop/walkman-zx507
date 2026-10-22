@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Setup</string>
+    <string name="next">Next</string>
+    <string name="back">Back</string>
+    <string name="skip">Skip</string>
+    <string name="start">Start</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+
+    <string name="language_title">Choose your language</string>
+    <string name="language_subtitle">You can change it later in Settings.</string>
+
+    <string name="zone_title">Time zone</string>
+    <string name="zone_subtitle">Pick the time you live by.</string>
+    <string name="zone_now">Now</string>
+    <string name="zone_more">Other time zones</string>
+    <string name="zone_fewer">Time zones for %1$s</string>
+
+    <string name="wifi_title">Wi-Fi</string>
+    <string name="wifi_subtitle">Connect to set the clock and get apps. You can also skip this.</string>
+    <string name="wifi_off">Wi-Fi is off</string>
+    <string name="wifi_none">Not connected</string>
+    <string name="wifi_connected">Connected</string>
+    <string name="wifi_choose">Choose a network</string>
+
+    <string name="debug_title">Manage from a computer</string>
+    <string name="debug_subtitle">With USB debugging on, Walkman Manager can read this player and install updates.</string>
+    <string name="debug_switch">USB debugging</string>
+    <string name="debug_note">The first time a computer connects, the player asks whether to allow it. You can change this later in Settings › System › Developer options.</string>
+
+    <string name="done_title">You\'re all set</string>
+    <string name="done_subtitle">Your Walkman is ready.</string>
+    <string name="done_language">Language</string>
+    <string name="done_zone">Time zone</string>
+    <string name="done_wifi">Wi-Fi</string>
+    <string name="done_debug">USB debugging</string>
+</resources>

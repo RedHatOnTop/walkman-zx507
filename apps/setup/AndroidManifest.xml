@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The first-run setup in place of AOSP's Provision, which marks the unit set up without a
+  screen. Stock 4.06 ran Google's SetupWizard with Sony's pages in it (SonyWizardInteg), which
+  the GSI cannot carry, so a fresh install started in English on UTC.
+
+  Pages: language, time zone, Wi-Fi, USB debugging, done. A HOME activity above Launcher3 (and
+  above Provision's 1), so it is what the first boot shows; at the end it sets
+  device_provisioned and user_setup_complete and disables itself. On a unit that is already set
+  up (an update over a running image) it does that at once without a page.
+
+  The same package is Launcher3's partner customization: res/xml/partner_default_layout.xml is
+  the home screen of a fresh install, W.music and Sound adjustment in the dock.
+
+  Platform-signed, for CHANGE_CONFIGURATION and WRITE_SETTINGS (the system locale; Android 13
+  checks both), SET_TIME_ZONE, WRITE_SECURE_SETTINGS (provisioning, adb) and NETWORK_SETTINGS
+  (the connected SSID).
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="dev.walkman.zx507.setup"
+    android:versionCode="1"
+    android:versionName="1">
+
+    <uses-sdk android:minSdkVersion="33" android:targetSdkVersion="33" />
+
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.SET_TIME_ZONE" />
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS" />
+    <uses-permission android:name="android.permission.NETWORK_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+
+    <application
+        android:label="@string/app_name"
+        android:allowBackup="false"
+        android:supportsRtl="false"
+        android:theme="@style/Setup">
+        <activity
+            android:name=".SetupActivity"
+            android:exported="true"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:configChanges="locale|layoutDirection|keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|fontScale|uiMode|density">
+            <intent-filter android:priority="2">
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.HOME" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.SETUP_WIZARD" />
+            </intent-filter>
+        </activity>
+        <!-- Launcher3 only asks the package manager for a system receiver of this action. -->
+        <receiver
+            android:name=".LauncherPartner"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.android.launcher3.action.PARTNER_CUSTOMIZATION" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

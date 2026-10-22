@@ -24,6 +24,7 @@ mkdir -p "$OUT"
 cp "$WORK/tc/lib/libzx507tagcharset.so" "$OUT/libzx507tagcharset-arm.so"
 cp "$WORK/tc/lib64/libzx507tagcharset.so" "$OUT/libzx507tagcharset-arm64.so"
 "$ROOT/apps/volumedial/build.sh" "$OUT/ZX507VolumeDial.apk" >/dev/null
+"$ROOT/apps/setup/build.sh" "$OUT/ZX507Setup.apk" >/dev/null
 (cd "$OUT" && cut -d' ' -f3 "$ROOT/kit/prebuilt.sha256" | xargs sha256sum >SHA256SUMS && cat SHA256SUMS)
 if cmp -s "$OUT/SHA256SUMS" "$ROOT/kit/prebuilt.sha256"; then
 	echo "same as kit/prebuilt.sha256"

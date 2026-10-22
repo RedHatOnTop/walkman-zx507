@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">첫 설정</string>
+    <string name="next">다음</string>
+    <string name="back">뒤로</string>
+    <string name="skip">건너뛰기</string>
+    <string name="start">시작하기</string>
+    <string name="on">켜짐</string>
+    <string name="off">꺼짐</string>
+
+    <string name="language_title">언어를 고르세요</string>
+    <string name="language_subtitle">나중에 설정에서 바꿀 수 있습니다.</string>
+
+    <string name="zone_title">시간대</string>
+    <string name="zone_subtitle">지내는 곳의 시간대를 고르세요.</string>
+    <string name="zone_now">지금</string>
+    <string name="zone_more">다른 시간대</string>
+    <string name="zone_fewer">%1$s의 시간대</string>
+
+    <string name="wifi_title">Wi-Fi</string>
+    <string name="wifi_subtitle">연결하면 시계가 자동으로 맞춰지고 앱을 받을 수 있습니다. 건너뛰어도 됩니다.</string>
+    <string name="wifi_off">Wi-Fi가 꺼져 있습니다</string>
+    <string name="wifi_none">연결되지 않음</string>
+    <string name="wifi_connected">연결됨</string>
+    <string name="wifi_choose">네트워크 고르기</string>
+
+    <string name="debug_title">컴퓨터에서 관리</string>
+    <string name="debug_subtitle">USB 디버깅을 켜면 Walkman Manager가 이 플레이어를 읽고 업데이트를 설치할 수 있습니다.</string>
+    <string name="debug_switch">USB 디버깅</string>
+    <string name="debug_note">컴퓨터를 처음 연결하면 허용할지 묻습니다. 나중에 설정 › 시스템 › 개발자 옵션에서 바꿀 수 있습니다.</string>
+
+    <string name="done_title">준비됐습니다</string>
+    <string name="done_subtitle">이제 Walkman을 쓸 수 있습니다.</string>
+    <string name="done_language">언어</string>
+    <string name="done_zone">시간대</string>
+    <string name="done_wifi">Wi-Fi</string>
+    <string name="done_debug">USB 디버깅</string>
+</resources>
