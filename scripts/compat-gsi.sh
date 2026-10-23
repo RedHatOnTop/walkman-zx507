@@ -49,6 +49,13 @@
 #   heavy frame misses its deadline; A/B on the unit (devlog 2026-10-15):
 #   QS shade 28.8 % -> 12.8 % janky, launcher 9.7 % -> 4.6 %, Settings
 #   0.16 % -> 0 %, for about 12 ms more touch-to-display latency.
+# - androidx.window.extensions is declared at /system/system_ext/framework,
+#   where the GSI build put it, instead of /system_ext/framework. Its odex
+#   records the first path, so an app that loads the jar by the second runs
+#   with a class loader context naming the first, while PackageManager
+#   compiled the app against the second. ART rejected every such odex:
+#   Settings, microG, PermissionController and any app that uses the library
+#   ran on the JIT (devlog 2026-10-23).
 #
 # Usage: scripts/compat-gsi.sh <in.img> <out.img>
 
@@ -81,6 +88,8 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 SF=/system/bin/surfaceflinger
 SF_SHA256=057f363305e79eac0ac0b9693de51bceddf8b0381bc56972ee6ef28fb012851d
 SF_HAS_ROUNDED_CORNERS=0x10993c
+WX=/system/system_ext/etc/permissions/androidx.window.extensions.xml
+WX_SHA256=e649efa502e3b67e894c5aded59b1b2de4dad4e1303f0d3e7fae29fe4a43b9ac
 
 cp --reflink=auto "$IN" "$OUT"
 printf '%s\0' u:object_r:system_file:s0 >"$WORK/ctx-system"
@@ -115,6 +124,11 @@ json.dump(d, open(p, "w"), indent=2)
 open(p, "a").write("\n")
 PYEOF
 
+debugfs -R "dump $WX $WORK/wx.xml" "$OUT" 2>/dev/null
+echo "$WX_SHA256  $WORK/wx.xml" | sha256sum -c --quiet -
+sed -i 's|file="/system_ext/framework/|file="/system/system_ext/framework/|' "$WORK/wx.xml"
+grep -q 'file="/system/system_ext/framework/androidx.window.extensions.jar"' "$WORK/wx.xml"
+
 debugfs -R "dump /system/build.prop $WORK/build.prop" "$OUT" 2>/dev/null
 printf '\n# ZX507 compatibility (scripts/compat-gsi.sh)\n' >>"$WORK/build.prop"
 for p in $PROPS; do
@@ -137,6 +151,7 @@ EOF
 {
 	replace "$WORK/task_profiles.json" "$TP"
 	replace "$WORK/build.prop" /system/build.prop
+	replace "$WORK/wx.xml" "$WX"
 	cat <<EOF
 mkdir $OVL
 sif $OVL mode 040755
