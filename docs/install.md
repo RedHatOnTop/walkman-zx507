@@ -5,6 +5,9 @@ Android 13 GSI and **your unit's own** Sony firmware into a system image and a b
 that unit. Sony's apps, libraries, boot animation and ramdisk come from your firmware and stay
 on your machine; do not pass the results on.
 
+**Beta, not a stable release**: it can have bugs this page does not know of yet, and it
+changes between versions ([Known issues](#known-issues)).
+
 Status 2026-10-22: one unit runs the release build (`RELEASE=1`), installed clean from
 Walkman Manager on 2026-10-21 right after going back to stock with it; the debug build was in
 daily use before that. The first-run setup below is in the kit since 2026-10-22; it ran on that

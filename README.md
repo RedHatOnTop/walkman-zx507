@@ -9,6 +9,11 @@ This repository ships no system image. It is a build kit. Sony's apps, libraries
 animation and ramdisk come out of the firmware file each owner downloads from Sony, are
 patched on that owner's computer, and are never published here.
 
+**Beta: not a stable release.** It is in daily use on one NW-ZX507, its author's, installed
+clean from Walkman Manager, and has run on no other unit. Expect bugs and changes from one
+version to the next; [`docs/install.md`](docs/install.md#known-issues) lists the known ones.
+It comes with no warranty (sections 15 and 16 of the [GPL](LICENSE)).
+
 ## Install
 
 The easiest way is **Walkman Manager** (`RedHatOnTop/walkman-manager`): its Firmware Studio
